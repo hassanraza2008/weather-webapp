@@ -1,12 +1,12 @@
 const apiKey = "638e758c2aac848c7e135d6bb1edf47e";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=berlin";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
-const weatherIcon = document.querySelector(".weather-icon")
+const weatherIcon = document.querySelector(".weather-icon");
 
-async function checkWeather() {
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+async function checkWeather(city) {
+    const response = await fetch(apiUrl + `&q=${city}&appid=${apiKey}`);
     
     if(response.status == 404) {
         document.querySelector(".error").style.display = "block";
